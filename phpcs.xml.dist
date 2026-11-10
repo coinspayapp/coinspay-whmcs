@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset name="CoinsPay WHMCS">
+    <description>The module runs on PHP 5.6 (WHMCS 7.0) to PHP 8.5.</description>
+    <file>modules</file>
+    <file>includes</file>
+    <arg name="extensions" value="php"/>
+    <arg value="p"/>
+    <config name="installed_paths" value="vendor/phpcompatibility/php-compatibility"/>
+    <config name="testVersion" value="5.6-"/>
+    <rule ref="PHPCompatibility"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    <rule ref="Generic.Files.ByteOrderMark"/>
+    <rule ref="Generic.Files.LineEndings">
+        <properties>
+            <property name="eolChar" value="\n"/>
+        </properties>
+    </rule>
+</ruleset>

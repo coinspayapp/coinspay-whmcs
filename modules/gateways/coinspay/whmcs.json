@@ -1,0 +1,27 @@
+{
+    "schema": "1.0",
+    "type": "whmcs-gateways",
+    "name": "coinspay",
+    "license": "GPL-2.0-or-later",
+    "category": "payments",
+    "description": {
+        "name": "CoinsPay",
+        "tagline": "Let clients pay invoices in USDT, BTC, ETH and 30+ other coins and tokens.",
+        "long": "The client presses Pay Now, picks a coin and a network on the CoinsPay payment page and pays. The payment is added to the invoice automatically, and CoinsPay sends the money on to your own wallets in the shares you set."
+    },
+    "logo": {
+        "filename": "logo.png"
+    },
+    "support": {
+        "homepage": "https://coinspay.app",
+        "support_email": "support@coinspay.app",
+        "support_url": "https://t.me/coinspayapp",
+        "docs_url": "https://coinspay.app/docs"
+    },
+    "authors": [
+        {
+            "name": "CoinsPay",
+            "homepage": "https://coinspay.app"
+        }
+    ]
+}
