@@ -7,13 +7,22 @@
     "description": {
         "name": "CoinsPay",
         "tagline": "Let clients pay invoices in USDT, BTC, ETH and 30+ other coins and tokens.",
-        "long": "The client presses Pay Now, picks a coin and a network on the CoinsPay payment page and pays. The payment is added to the invoice automatically, and CoinsPay sends the money on to your own wallets in the shares you set."
+        "long": "The client presses Pay Now, picks a coin and a network on the CoinsPay payment page and pays. The payment is added to the invoice automatically, and CoinsPay sends the money on to your own wallets in the shares you set.",
+        "features": [
+            "Clients pay on the CoinsPay payment page in USDT, BTC, ETH and 30+ other coins and tokens",
+            "The payment is added to the invoice automatically, exactly once",
+            "Payouts go straight to your own wallets in the shares you set",
+            "Signed webhooks, with the WHMCS cron as a fallback",
+            "Changed, cancelled or otherwise paid invoices cancel the CoinsPay invoice",
+            "Test mode: invoices paid without money, visible to admins only"
+        ]
     },
     "logo": {
         "filename": "logo.png"
     },
     "support": {
         "homepage": "https://coinspay.app",
+        "learn_more": "https://coinspay.app/features",
         "support_email": "support@coinspay.app",
         "support_url": "https://t.me/coinspayapp",
         "docs_url": "https://coinspay.app/docs"
