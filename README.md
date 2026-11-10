@@ -113,4 +113,4 @@ python bin/build.py
 
 ## License
 
-GPL-2.0-or-later.
+GPL-2.0-or-later. The full text is in [LICENSE](LICENSE).

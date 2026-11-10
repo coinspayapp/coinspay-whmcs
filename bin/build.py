@@ -17,7 +17,7 @@ FILES = [
     "modules/gateways/coinspay",
     "includes/hooks/coinspay.php",
 ]
-DOCS = ["docs/install-en.md", "docs/install-ru.md"]
+DOCS = ["docs/install-en.md", "docs/install-ru.md", "LICENSE"]
 
 
 def version() -> str:
