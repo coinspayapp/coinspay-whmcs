@@ -55,6 +55,7 @@ The installation guide is also available as a separate document in [English](doc
    - under "Webhook" enter `https://<your WHMCS>/modules/gateways/callback/coinspay.php`, save, and copy the `whsec_…` secret into "Webhook secret".
 2. Save the gateway settings and open "Check the connection" in the description of the secret field. The page shows the shop, the key mode, which of your WHMCS currencies CoinsPay accepts and whether the test event came. Press "Send test event" in the CoinsPay dashboard and reload the page.
 3. If CoinsPay does not accept your clients' currency, set "Convert To For Processing" to one it accepts, USD for instance. The client pays in that currency, and the invoice gets its balance in the client's currency.
+4. Make a test payment before you take real ones, as described in [First payment: a test one](#first-payment-a-test-one).
 
 Other settings:
 
@@ -73,7 +74,19 @@ Other settings:
 
 With a test key (`cpk_test_…`) invoices are paid with a button on the payment page and no coins move. Sign in to the admin area and the client area in the same browser: only an admin sees "Pay Now".
 
-By default a test payment is only written to the gateway log. An added test payment is a real payment for WHMCS, with revenue, client emails and provisioning, so turn on "Add test payments" only on a test copy of WHMCS.
+By default a test payment is only written to the gateway log. An added test payment is a real payment for WHMCS, with revenue, client emails and provisioning, so turn on "Add test payments" only on a test copy of WHMCS, or for an invoice made for the test below.
+
+### First payment: a test one
+
+Every WHMCS is set up its own way: its URL, web server rules, cron, currencies, other modules. Pay one invoice in test mode first. It takes five minutes and goes through the whole path a real payment takes, with no money moving.
+
+1. In the CoinsPay dashboard create a key with "Invoices only" access and tick "Test key": it starts with `cpk_test_`. Paste it into "API key", turn on "Add test payments" and "Debug log", and save.
+2. In the WHMCS admin area create a test client, or take your own client account. On its profile press "Create Invoice" and add one custom line item for any small amount, with CoinsPay as the payment method. A custom line item has no product, so nothing gets provisioned.
+3. On the client's profile press "Login as Client", open the invoice and press "Pay Now". On the CoinsPay payment page, marked "Test invoice", pick a coin and press "Pay".
+4. Back on the invoice, it should turn Paid within a minute, and the gateway log (Billing → Gateway Log) should show the CoinsPay entries.
+5. Clean up: delete the test payment on the Transactions tab of the invoice, or the whole invoice, turn off "Add test payments" and "Debug log", and replace the test key with a live one (without "Test key").
+
+If the invoice does not turn Paid, send the gateway log entries and the result of "Check the connection" to [CoinsPay support](https://t.me/coinspayapp) or support@coinspay.app.
 
 ## Removal
 

@@ -34,6 +34,7 @@ set up in the CoinsPay dashboard.
 3. If CoinsPay does not accept the currency of your clients, set "Convert To For Processing" to
    a currency it accepts, USD for instance. The client pays the amount in that currency, and the
    invoice gets its balance in the client's currency.
+4. Make a test payment before taking real ones: see "First payment: a test one" below.
 
 Other settings:
 
@@ -55,7 +56,31 @@ in to the admin area and to the client area in one browser: only an admin sees "
 
 By default a test payment is not added to the invoice: the module only writes it to the gateway
 log. An added payment is no different from a real one for WHMCS: revenue, emails to the client,
-provisioning. Turn "Add test payments" on only on a test copy of WHMCS.
+provisioning. Turn "Add test payments" on only on a test copy of WHMCS, or for an invoice made
+for the test below.
+
+## First payment: a test one
+
+Every WHMCS is set up its own way: its address, web server rules, cron, currencies, other
+modules. Pay one invoice in test mode first. It takes five minutes and goes the whole way a real
+payment goes, with no money moving.
+
+1. In the CoinsPay dashboard create a key with "Invoices only" access and tick "Test key": it
+   starts with `cpk_test_`. Paste it into "API key", turn on "Add test payments" and "Debug log",
+   and save.
+2. In the WHMCS admin area create a test client, or take your own client account. On its profile
+   press "Create Invoice" and add one custom line item for any small amount, with CoinsPay as the
+   payment method. A custom line item has no product, so nothing gets provisioned.
+3. On the client's profile press "Login as Client", open the invoice and press "Pay Now". On the
+   CoinsPay payment page, marked "Test invoice", pick a coin and press "Pay".
+4. Back on the invoice, it should turn Paid within a minute, and the gateway log
+   ("Billing → Gateway Log") should show the CoinsPay entries.
+5. Clean up: delete the test payment on the Transactions tab of the invoice, or the whole
+   invoice, turn off "Add test payments" and "Debug log", and replace the test key with a live
+   one (without "Test key").
+
+If the invoice does not turn Paid, send the gateway log entries and the result of "Check the
+connection" to CoinsPay support: https://t.me/coinspayapp or support@coinspay.app.
 
 ## If webhooks do not arrive
 
